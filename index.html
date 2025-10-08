@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קליניקת היופי - קוסמטיקה מקצועית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', 'Assistant', sans-serif;
+            background: #f8fbff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #e8f4fd 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(66, 165, 245, 0.08) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.06) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            font-size: 58px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: #1565c0;
+        }
+
+        .hero .subtitle {
+            font-size: 26px;
+            color: #1976d2;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            color: #424242;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 55px;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 19px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(25, 118, 210, 0.35);
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 90px 20px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            text-align: center;
+            line-height: 1.3;
+            color: #1565c0;
+        }
+
+        .problem-text {
+            font-size: 19px;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            text-align: center;
+            line-height: 1.8;
+            color: #424242;
+        }
+
+        .problem-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .problem-item {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            padding: 35px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #2196f3;
+            text-align: right;
+            transition: all 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateX(-8px);
+            border-left-color: #1565c0;
+            box-shadow: 0 5px 20px rgba(33, 150, 243, 0.15);
+        }
+
+        .problem-item h3 {
+            font-size: 20px;
+            color: #1565c0;
+            font-weight: 600;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 90px 20px;
+            background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-card {
+            background: #ffffff;
+            border: 1px solid #bbdefb;
+            border-radius: 12px;
+            padding: 40px 35px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(33, 150, 243, 0.08);
+        }
+
+        .solution-card:hover {
+            border-color: #2196f3;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.15);
+        }
+
+        .solution-card h3 {
+            font-size: 26px;
+            margin-bottom: 18px;
+            color: #1565c0;
+            font-weight: 600;
+        }
+
+        .solution-card p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #424242;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 90px 20px;
+            background: #ffffff;
+        }
+
+        .benefits-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .benefits-list li {
+            font-size: 18px;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+            border-radius: 10px;
+            position: relative;
+            padding-right: 55px;
+            line-height: 1.7;
+            color: #424242;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
+        }
+
+        .benefits-list li:hover {
+            border-right-color: #2196f3;
+            transform: translateX(-5px);
+            box-shadow: 0 3px 15px rgba(33, 150, 243, 0.12);
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            right: 20px;
+            font-size: 26px;
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 90px 20px;
+            background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            border: 1px solid #bbdefb;
+            border-radius: 12px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(33, 150, 243, 0.08);
+        }
+
+        .testimonial-card:hover {
+            border-color: #2196f3;
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #424242;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #e3f2fd;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            color: #1565c0;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .rating {
+            font-size: 16px;
+            color: #ffa726;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 90px 20px;
+            background: #ffffff;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 60px auto 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+            border: 2px solid #2196f3;
+            border-radius: 15px;
+            padding: 50px 45px;
+            box-shadow: 0 5px 25px rgba(33, 150, 243, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #1565c0;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            background: #ffffff;
+            border: 2px solid #90caf9;
+            border-radius: 8px;
+            color: #1a1a1a;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 19px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.25);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(25, 118, 210, 0.35);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            display: none;
+            padding: 22px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            border: 2px solid #66bb6a;
+            color: #2e7d32;
+        }
+
+        .error-message {
+            background: #ffebee;
+            border: 2px solid #ef5350;
+            color: #c62828;
+        }
+
+        .message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #e8f4fd 0%, #ffffff 100%);
+            text-align: center;
+            border-top: 1px solid #bbdefb;
+        }
+
+        .footer p {
+            font-size: 15px;
+            color: #757575;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero .subtitle {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .solution-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>קליניקת היופי המובילה</h1>
+            <p class="subtitle">קוסמטיקה מקצועית ברמה גבוהה</p>
+            <p>עור מושלם, זוהר ובריא מחכה לך. גלי את סודות היופי עם הטכנולוגיה המתקדמת ביותר</p>
+            <a href="#form" class="cta-button">בואי לייעוץ חינם</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">האם את סובלת מהבעיות הללו?</h2>
+            <p class="problem-text">רוב הנשים מתמודדות עם בעיות עור שמשפיעות על הביטחון העצמי והרווחה שלהן. הבעיות הנפוצות ביותר שאנחנו מטפלות בהן:</p>
+            <div class="problem-list">
+                <div class="problem-item">
+                    <h3>קמטים וקווי הבעה מעמיקים</h3>
+                </div>
+                <div class="problem-item">
+                    <h3>כתמי פיגמנטציה וסימני שמש</h3>
+                </div>
+                <div class="problem-item">
+                    <h3>עור יבש ומחוספס</h3>
+                </div>
+                <div class="problem-item">
+                    <h3>אובדן גמישות והידוק העור</h3>
+                </div>
+                <div class="problem-item">
+                    <h3>אדמומיות וגירוי בעור</h3>
+                </div>
+                <div class="problem-item">
+                    <h3>נקבוביות פתוחות ומוגדלות</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title">הפתרון המושלם עבורך</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>טכנולוגיה מתקדמת</h3>
+                    <p>שימוש בציוד ובמוצרים מהדור האחרון שמביאים תוצאות מוכחות מדעית ונראות כבר מהטיפול הראשון</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>טיפול אישי ומותאם</h3>
+                    <p>כל לקוחה מקבלת תוכנית טיפול ייחודית המותאמת במיוחד לסוג העור, לצרכים ולמטרות שלה</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>תוצאות מוכחות</h3>
+                    <p>מאות לקוחות מרוצות שחוו שיפור משמעותי במראה ובמרקם העור תוך זמן קצר</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>ניסיון ומקצועיות</h3>
+                    <p>שנים של ניסיון, הכשרות מתקדמות וידע עמוק בתחום הקוסמטיקה המקצועית</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>איכות ללא פשרות</h3>
+                    <p>שימוש אך ורק במוצרים איכותיים מהמותגים המובילים בעולם הקוסמטיקה</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>חוויה מלאה</h3>
+                    <p>אווירה נעימה ומפנקת, שירות אישי ותשומת לב לכל פרט שיגרמו לך להרגיש מיוחדת</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">היתרונות שלנו</h2>
+            <ul class="benefits-list">
+                <li>עור זוהר, חלק ורענן שנראה צעיר יותר בעשר שנים</li>
+                <li>הפחתה משמעותית בקמטים וקווי הבעה</li>
+                <li>שיפור במרקם העור וגוון אחיד ומואר</li>
+                <li>הידוק והרמת העור באזורים שנפלו</li>
+                <li>טיפול יעיל בכתמי פיגמנטציה וסימני שמש</li>
+                <li>צמצום נקבוביות והפחתת ייצור עודף של שומן</li>
+                <li>הזנה עמוקה ולחות מיטבית לעור</li>
+                <li>ליווי מקצועי מלא לאורך כל תהליך הטיפול</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title">מה הלקוחות שלנו אומרות</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">אחרי שנים של חיפושים מצאתי סוף סוף את המקום המושלם! העור שלי השתנה לגמרי והתוצאות מדהימות. הכי טוב שעשיתי לעצמי</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ש</div>
+                        <div class="author-info">
+                            <h4>שרה כהן</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">המקצועיות והתשומת לב לפרטים פשוט מדהימים. הרגשתי בידיים טובות מהרגע הראשון. תודה על השינוי המופלא</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">מ</div>
+                        <div class="author-info">
+                            <h4>מיכל לוי</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">הטיפולים כאן באמת עובדים! העור שלי נראה צעיר, זוהר ומוצק. כל חברותיי שואלות אותי מה עשיתי</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ר</div>
+                        <div class="author-info">
+                            <h4>רונית אברהם</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">לא האמנתי שאפשר לראות תוצאות כל כך מהר! כבר אחרי הטיפול הראשון ראיתי שיפור משמעותי</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ד</div>
+                        <div class="author-info">
+                            <h4>דנה מזרחי</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">החוויה הכי טובה! מהייעוץ המקצועי דרך הטיפול המפנק ועד התוצאות המדהימות - הכל מושלם</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">נ</div>
+                        <div class="author-info">
+                            <h4>נועה ברק</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">בעלי שאל אותי אם עשיתי משהו לפנים כי הוא רואה שאני זוהרת! הקמטים נעלמו והעור מוצק וחלק</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ת</div>
+                        <div class="author-info">
+                            <h4>תמר פרידמן</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <h2 class="section-title">קבעי ייעוץ חינם היום</h2>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">שם מלא</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">טלפון</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">אימייל</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">במה את מעוניינת?</label>
+                        <textarea id="message" name="message" placeholder="ספרי לנו על הצרכים שלך..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">שלחי פרטים</button>
+                    <div class="message success-message" id="successMessage">
+                        תודה רבה! הפרטים נשלחו בהצלחה. ניצור איתך קשר בהקדם
+                    </div>
+                    <div class="message error-message" id="errorMessage">
+                        אופס! משהו השתבש. אנא נסי שוב מאוחר יותר
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 כל הזכויות שמורות | קליניקת היופי</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('.submit-button');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Reset messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+            
+            // Disable button during submission
+            submitButton.disabled = true;
+            submitButton.textContent = 'שולח...';
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                // Send email using FormSubmit
+                const response = await fetch('https://formsubmit.co/sagiavtahami@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: formData.name,
+                        phone: formData.phone,
+                        email: formData.email,
+                        message: formData.message,
+                        _subject: 'פנייה חדשה מאתר קליניקת היופי',
+                        _template: 'table'
+                    })
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                // Show error message
+                errorMessage.classList.add('show');
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'שלחי פרטים';
+            }
+        });
+    </script>
+</body>
+</html>
